@@ -1,0 +1,154 @@
+/*
+    .container ratios
+    small: 100% with (0 2.5% padding)
+    medium-to-large: 85%
+    larger: 80%
+    .container.full-screen: 100%
+*/
+@mixin border-box() {
+    @if(not $include-utility-classes) {
+        @extend %border-box;
+    }
+}
+.container {
+    display: block;
+    margin: 0 auto;
+    @include border-box();
+    & & {
+        width: 100% !important;
+    }
+    @include on(small) {
+        &:not(.onsmall-full-screen) {
+            padding: 0 2.5%;
+        }
+        .container, .column & {
+            width: 100%;
+        }
+    }
+    @include on(medium-to-large) {
+        width: 85%;
+        &.onmedium-full-screen {
+            width: 100%;
+        }
+    }    
+    @include on(large) {
+        width: 80%;
+        &.sp-right-0 {
+            margin-right: 0;
+        }
+        &.sp-left-0 {
+            margin-left: 0;
+        }
+    }
+    @include on(large-to-larger) {
+        &.onlarge-full-screen {
+            width: 100%;
+        }
+    }
+    @include on(larger) {
+        &.onlarger-full-screen {
+            width: 100%;
+        }
+    }
+}
+//reducing conflict in other frameworks
+.flex-sys.container {
+    @extend .container;
+}
+/*
+    .remaining the remaining space after .container class
+    .remainder-width = 100% - container-width
+*/
+@if($include-remaining) {
+    .remaining {
+        @include border-box();
+        width: fit-content;
+        @include on(large) {
+            width: 100% - 80;
+        }
+    }
+}
+/*
+    .flex-row, .row-reversed (main or row)-aixs parent
+    .flex-column, .column-reversed cross-axis parent
+*/
+.flex-row, .flex-column, .row-reversed, .column-reversed {
+    &:not(.none):not(.inline-flex) {
+        display: flex !important;
+    }
+    &.inline-flex:not(.none) {
+        display: inline-flex !important;
+    }
+    &:not(.default) {
+        &:not([class*=cross]) {
+            align-items: flex-start;
+        }
+        &:not([class*=line]) {
+            align-content: flex-start;
+        }
+    }
+    &, & > * {
+        @include border-box();
+    }
+    &.no-shrink > * {
+        flex-shrink: 0;
+    }
+}
+/*.*row* classes will wrap by default*/
+[class*=row] {
+    flex-wrap: wrap;
+    & > * {
+        width: auto;
+    }
+}
+/*wrapping behavior*/
+.wrap-reversed {
+    flex-wrap: wrap-reverse;
+}
+.nowrap {
+    flex-wrap: nowrap;
+}
+/*wrap within a breakpoint range*/
+@include each-range(wrap, false, false) {
+    flex-wrap: wrap;
+}
+/*wrap starting from a breakpoint*/
+@include on(medium) {
+    .from-medium-wrap {
+        flex-wrap: wrap;
+    }
+}
+@include on(large) {
+    .from-large-wrap {
+        flex-wrap: wrap;
+    }
+}
+/*row in reversed order*/
+.row-reversed {
+    flex-flow: row-reverse;
+}
+/*column in reversed order*/
+.column-reversed {
+    flex-flow: column-reverse;
+}
+/*specifiying that the height of a .column* items should be set using the flex property*/
+[class*=column] {
+    & > * {
+        height: auto;
+    }
+}
+[class*=column]:not(.default) > *:not([class*=container]):not([class*=column]) {
+    @extend %full-width;
+}
+/*cross-axis container*/
+.flex-column {
+    flex-flow: column;
+}
+/*main-axis container within a breakpoint range*/
+@include each-range(row, true) {
+    flex-flow: row;
+}
+/*cross-axis container within a breakpoint range*/
+@include each-range(column, true) {
+    flex-flow: column;
+}

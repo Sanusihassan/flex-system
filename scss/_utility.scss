@@ -1,0 +1,177 @@
+/*utility classes*/
+
+/*
+    text-alignment
+    right to left languages
+    arabic: ar
+    aramaic: hy
+    azeri: az
+    dhivehi/maldivian: dv
+    hebrew: he
+    kurdish: ku
+    persian/farsi: fa
+    urdu: ur
+*/
+@mixin text-alignment-classes($breakpoint: "") {
+    $breakpoint: if($breakpoint == "", $breakpoint, on#{$breakpoint}#{"-"});
+    $values: (start, end, left, right, center, justify, match-parent);
+    @each $value in $values {
+        $val: if($value == match-parent, inherit, $value);
+        .#{$breakpoint}text-#{$value} {
+            @if($value == start)
+            {
+                [dir=ltr] & {
+                    text-align: left;
+                    text-align: #{$val};
+                }
+                [dir=rtl] &,
+                [lang = ar] &,
+                [lang = hy] &,
+                [lang = az] &,
+                [lang = dv] &,
+                [lang = he] &,
+                [lang = ku] &,
+                [lang = fa] &,
+                [lang = ur] & {
+                    @extend .#{$breakpoint}text-right;
+                }
+            }
+            @else if($value == end) {
+                [dir=ltr] & {
+                    text-align: right;
+                    text-align: #{$val};
+                }
+                [dir=rtl] &,
+                [lang = ar] &,
+                [lang = hy] &,
+                [lang = az] &,
+                [lang = dv] &,
+                [lang = he] &,
+                [lang = ku] &,
+                [lang = fa] &,
+                [lang = ur] & {
+                    @extend .#{$breakpoint}text-left;
+                }
+            }
+            text-align: #{$val};
+            @if($value == match-parent) {
+                text-align: #{$value};
+            }
+        }
+        .flex-sys.#{$breakpoint}text-#{$value} {@extend .#{$breakpoint}text-#{$value};}
+    }
+}
+@mixin reset-margin() {
+    $directions: (top: t, right: r, bottom: b, left: l);
+    @each $dir, $name in $directions {
+        .m#{$name}-0 {
+            margin-#{$dir}: 0;
+        }
+        .margin-0 {
+            @extend .m#{$name}-0;
+        }
+    }
+}
+@if($include-utility-classes) {
+    .full-width {
+        @extend %full-width;
+    }
+    .full-height {
+        @extend %full-height;
+    }
+    .full-width-height {
+        @extend %full-width-height;
+    }
+    * {
+        &, &::before, &::after {
+            @extend %border-box;
+        }
+    }
+    html, body {
+        &:not(.default) {
+            @extend .full-height;
+        }
+    }
+    body:not(.default) {
+        @extend .margin-0;
+    }
+    @include text-alignment-classes();
+    @include on(medium) {
+        @include text-alignment-classes(medium);
+    }
+    @include on(large) {
+        @include text-alignment-classes(large);
+    }
+    @include on(larger) {
+        @include text-alignment-classes(larger);
+    }
+    img, video {
+        &.responsive {
+            max-width: 100%;
+            height: auto;
+        }
+        &.cover {
+            object-fit: cover;
+        }
+        &.contain {
+            object-fit: contain;
+        }
+        &.middle-vertically {
+            vertical-align: middle;
+        }
+    }
+    a:not(.default) {
+        text-decoration: none;
+        color: inherit;
+    }
+    ul:not(.default), ol:not(.default) {
+        list-style-type: none;
+        @extend .margin-0;
+        @extend .padding-0;
+    }
+    [type], textarea, button {
+        &:not(.default) {
+            outline: none;
+        }
+    }
+    textarea:not(.default) {
+        resize: none;
+    }
+    @include reset-margin();
+    .padding-0 {
+        padding: 0;
+    }
+    .no-select {
+        user-select: none;
+    }
+    .no-drag {
+        -webkit-user-drag: none;
+    }
+    .circle {
+        border-radius: 50%;
+    }
+    .sausage, .capsule {
+        border-radius: 20vw;
+        &-#{right} {
+            border-radius: 0 20vw 20vw 0;
+        }
+        &-#{left} {
+            border-radius: 20vw 0 0 20vw;
+        }
+    }
+    .cap {
+        text-transform: capitalize;
+    }
+    .upper {
+        text-transform: uppercase;
+    }
+    .lower {
+        text-transform: lowercase;
+    }
+    .text-nowrap {
+        white-space: nowrap;
+    }
+    .system-font {
+        @extend %system-font;
+    }
+}

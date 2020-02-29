@@ -1,0 +1,141 @@
+@import "./functions";
+@mixin flex-system() {
+    @if(not $include-spacing-classes) {
+        @include create-columns();
+        @include on(medium) {
+            @include create-columns(medium);
+        }
+        @include on(large) { 
+            @include create-columns(large);
+        }
+        @include on(larger) {
+            @include create-columns(larger);
+        }
+    }
+    @else {
+        @include on(small) {
+            @include create-columns();
+        }
+        @include on(medium-to-large) {
+            @include create-columns(medium);
+        }
+        @include on(large-to-larger) { 
+            @include create-columns(large);
+        }
+        @include on(larger) {
+            @include create-columns(larger);
+        }
+    }
+}
+@mixin create-columns($breakpoint: "") {
+    $class-name: slice;
+    @for $i from 1 through 12 {
+        $class-name: rename($class-name, $i, $breakpoint);
+        @if($include-spacing-classes) {
+            @for $j from 1 through 6 {
+                .#{$class-name}-m#{$j} {
+                    flex: 0 1 ($one-slice * $i) - $j;
+                }
+            }
+        }
+        @else {
+            .#{$class-name} {
+                flex: 0 1 $one-slice * $i;
+            }
+        }
+    }
+}
+//ordering classes
+@mixin orders($breakpoint: "") {
+    $breakpoint: rename-breakpoint($breakpoint);
+    @for $order from 1 through 6 {
+        @if($breakpoint == "") {
+            .#{$breakpoint}order-#{$order}, .flex-sys.order-#{$order} {
+                order: $order;
+            }
+        }
+        @else {
+            .#{$breakpoint}order-#{$order} {
+                order: $order;
+            }
+        }
+    }
+}
+//flex item alignment on the main axis classes / cross if possible
+@mixin row-line-spacing($breakpoint: "", $property-name: justify-content) {
+    $breakpoint: rename-breakpoint($breakpoint);
+    $property: if($property-name == justify-content, justify-content, align-content);
+    $direction: if($property-name == justify-content, row, line);
+    @if($breakpoint != "") {
+        .#{$breakpoint}#{$direction}-start {
+            #{$property}: flex-start;
+        }
+    }
+    @if($property == align-content) {
+        .#{$breakpoint}#{line-}stretch {
+            #{$property}: stretch;
+        }
+    }
+    .#{$breakpoint}#{$direction}-end {
+        #{$property}: flex-end;
+    }
+    .#{$breakpoint}#{$direction}-center {
+        #{$property}: center;
+    }
+    $sp: if($breakpoint == "", space-, sp-);
+    $direction: if($property-name == justify-content, $sp, line-sp-);
+    .#{$breakpoint}#{$direction}around {
+        #{$property}: space-around;
+    }
+    .#{$breakpoint}#{$direction}between {
+        #{$property}: space-between;
+    }
+    .#{$breakpoint}#{$direction}evenly {
+        #{$property}: space-evenly;
+    }
+}
+//space distribution on the cross axis classes for flex container and for flex item
+@mixin cross-spacing($breakpoint: "", $prop: items) {
+    $breakpoint: rename-breakpoint($breakpoint);
+    $name: if($prop == items, cross, self);
+    @if($breakpoint != "") {
+        .#{$breakpoint}#{$name}-start {
+            align-#{$prop}: flex-start;
+        }
+    }
+    .#{$breakpoint}#{$name}-end {
+        align-#{$prop}: flex-end;
+    }
+    .#{$breakpoint}#{$name}-center {
+        align-#{$prop}: center;
+    }
+    .#{$breakpoint}#{$name}-baseline {
+        align-#{$prop}: baseline;
+    }
+    $name: if($prop == items, "", self-);
+    .#{$breakpoint}#{$name}stretch {
+        align-#{$prop}: stretch;
+    }
+}
+//auto margins classes
+@mixin auto-margins($breakpoint: "") {
+    $breakpoint: rename-breakpoint($breakpoint);
+    $directions: (top: bottom, right: left, bottom: top, left: right);
+    @each $dir, $oppos in $directions {
+        $push: if($breakpoint == "", push-, "");
+        .#{$breakpoint}#{$push}#{$oppos} {
+            margin: 0;
+            margin-#{$dir}: auto !important;
+        }
+        .#{$breakpoint}center-x {
+            @if($dir == left or $dir == right) {
+                @extend .#{$breakpoint}#{$push}#{$oppos};
+            }
+        }
+        .#{$breakpoint}center-y {
+            @if($dir == top or $dir == bottom) {
+                @extend .#{$breakpoint}#{$push}#{$oppos};
+            }
+        }
+    }
+}

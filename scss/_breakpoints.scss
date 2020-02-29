@@ -1,0 +1,128 @@
+///   flex-system.css v1.1
+///   (c) 2019 - 2020 by Sanusi Hassan
+///   licance: MIT
+
+@import "./functions";
+//breakpoint variables
+$small: 599.99px;
+$medium: 600px;
+$large: 992px;
+$larger: 1200px;
+@mixin on($start: 0, $to: "", $end: 0) {
+    $not-range: $to == "" and $end == 0;
+    $start-at: ($start == medium) or ($start == large) or ($start == larger);
+    @if($start == small and $not-range) {
+        @include max($small) {@content;}
+    }
+    //start at breakpoints
+    @else if($start-at and $not-range) {
+        @include min(get-breakpoint($start)) {@content;}
+    }
+    @else if($start == medium-to-large and $not-range) {
+        @include range($medium, ($large - 1) + 0.99) {@content;}
+    }
+    @else if($start == large-to-larger and $not-range) {
+        @include range($large, ($larger - 1) + 0.99) {@content;}
+    }
+    @else {
+        @if($start == max) {
+            @include max($to) {@content;}
+        }
+        //breakpoint range
+        @else if($to == to) {
+            @include range(get-breakpoint($start), get-breakpoint($end)) {@content;}
+        }
+        @else {
+            @include min($start) {@content;}
+        }
+    }
+}
+@mixin min($breakpoint) {
+    @media only screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+@mixin max($breakpoint) {
+    @media only screen and (max-width: $breakpoint) {
+        @content;
+    }
+}
+@mixin range($start, $end) {
+    @media only screen and (min-width: $start) and (max-width: $end) {
+        @content;
+    }
+}
+@mixin each-range($name, $class-name-swaped: false, $self: false) {
+    $ranges: (small: small, medium: medium-to-large, large: large-to-larger, larger: larger);
+    $breakpoint: "";
+    @each $range-name, $range in $ranges {
+        @if(not $self)
+        {
+            @if($class-name-swaped) {
+                @include on($range) {
+                    .#{$name}-on#{$range-name} {
+                        @content;
+                    }
+                }
+            }
+            @else {
+                @include on($range) {
+                    .on#{$range-name}-#{$name} {
+                        @content;
+                    }
+                }
+            }
+        }
+        @else
+        {
+            @if($class-name-swaped) {
+                @include on($range) {
+                    &.#{$name}-on#{$range-name} {
+                        @content;
+                    }
+                }
+            }
+            @else {
+                @include on($range) {
+                    &.on#{$range-name}-#{$name} {
+                        @content;
+                    }
+                }
+            }
+        }
+    }
+}
+@mixin each-breakpoint($name, $prefix: on, $alternative: "") {
+    $breakpoints: (medium: medium, large: large, larger: larger);
+    @include generate($name, $alternative) {
+        @content;
+    }
+    @each $breakpoint-name, $suffix in $breakpoints {
+        @include on($breakpoint-name) {
+            $prefix: if($prefix == on, $prefix, $prefix#{"-"});
+            @include generate(#{$prefix}#{$breakpoint-name}-#{$name}, $alternative, $breakpoint-name) {
+                @content;
+            }
+        }
+    }
+}
+@mixin generate($name, $alternative, $breakpoint: "") {
+    $breakpoint: rename-breakpoint($breakpoint);
+    @if($alternative == "") {
+        .#{$name} {
+            @content;
+        }
+    }
+    @else {
+        .#{$name}, .#{$breakpoint}#{$alternative} {
+            @content;
+        }
+    }
+}
+//according to http://screensiz.es/
+//breakpoint variables for height
+$small-h: 800px;
+$medium-h: 1080px;
+$large-h: 1280px;
+$larger-h: 1920px;
+$largest-h: 2560px;

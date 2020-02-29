@@ -1,0 +1,22 @@
+$headings: (1: 6, 2: 5, 3: 4, 4: 3, 5: 2, 6: 1);
+%font-weight {
+    font-weight: 300;
+}
+//responsive-typography
+@mixin responsive-typography() {
+    $n: 1;
+    @each $heading in $headings {
+        h#{map-get($headings, $n)}, .flex-sys.h#{map-get($headings, $n)} {
+            font-size: calc(#{$amount} + #{$n * (99/100)}vw);
+            @extend %font-weight;
+        }
+        $n: $n + 1;
+    }
+}
+@if($include-typography) {
+    @include responsive-typography();
+    /*responsive paragraph*/
+    p.responsive {
+        font-size: calc(1.15em + .15vw);
+    }
+}

@@ -1,0 +1,150 @@
+///   flex-system.css v1.1
+///   (c) 2019 - 2020 by Sanusi Hassan
+///   licance: MIT
+
+//placeholder variables for our grid system
+$shrink: 0 1;
+$slice-1 :
+   8.3333333333%;
+
+
+$slice-2 :
+   16.6666666667%;
+
+
+$fourth :
+   25%;
+
+
+$third :
+   33.3333333333%;
+
+
+$slice-5 :
+   41.6666666667%;
+
+
+$half :
+   50%;
+
+
+$slice-7 :
+   58.3333333333%;
+
+
+$slice-8 :
+   66.6666666667%;
+
+
+$slice-9 :
+   75%;
+
+
+$slice-10 :
+   83.3333333333%;
+
+
+$slice-11 :
+   91.6666666667%;
+
+
+$fill :
+   100%;
+//flex-system order variables
+$order-1 
+  : 6;
+
+
+$order-2 
+  : 5;
+
+
+$order-3 
+  : 4;
+
+
+$order-4 
+  : 3;
+
+
+$order-5 
+  : 2;
+
+
+$order-6 
+  : 1;
+//flex-system typography variables
+$amount: 0.79rem;
+$h6 :
+   calc(#{$amount} + 0.99vw);
+
+
+$h5 :
+   calc(#{$amount} + 1.98vw);
+
+
+$h4 :
+   calc(#{$amount} + 2.97vw);
+
+
+$h3 :
+   calc(#{$amount} + 3.96vw);
+
+
+$h2 :
+   calc(#{$amount} + 4.95vw);
+
+
+$h1 :
+   calc(#{$amount} + 5.94vw);
+//flex-system layout placeholders
+%flex {
+   display: flex;
+}
+%inline-flex {
+   display: inline-flex;
+}
+%wrap {
+   flex-flow: wrap;
+}
+%wrap-reversed {
+   flex-flow: wrap-reverse;
+}
+%nowrap {
+   flex-flow: nowrap;
+}
+%flex-row {
+   flex-flow: row;
+}
+%row-reversed {
+   flex-flow: row-reverse;
+}
+%flex-column {
+   flex-flow: column;
+}
+%column-reversed {
+   flex-flow: column-reverse;
+}
+//flex-system utility placeholders
+%border-box {
+   box-sizing: border-box;
+}
+%full-width {
+   width: 100%;
+}
+%full-height {
+   height: 100%;
+}
+%full-width-height {
+   @extend %full-width;
+   @extend %full-height;
+}
+%inherit-color {
+   color: inherit;
+}
+%inherit-bg-color {
+   background-color: inherit;
+}
+%system-font {
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

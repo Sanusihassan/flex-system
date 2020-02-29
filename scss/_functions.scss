@@ -1,0 +1,36 @@
+@function rename($name, $num, $breakpoint: "") {
+    @if($num == 3) {
+        $name: if($breakpoint == "", fourth, on#{$breakpoint}-fourth);
+    }
+    @else if($num == 4) {
+        $name: if($breakpoint == "", third, on#{$breakpoint}-third);
+    }
+    @else if($num == 6) {
+        $name: if($breakpoint == "", half, on#{$breakpoint}-half);
+    }
+    @else if($num == 12) {
+        $name: if($breakpoint == "", fill, on#{$breakpoint}-fill);
+    }
+    @else {
+        $name: if($breakpoint == "", slice-#{$num}, on#{$breakpoint}-#{$num});
+    }
+    @return $name;
+}
+@function rename-breakpoint($breakpoint: "") {
+    @return if($breakpoint != "", on#{$breakpoint}#{"-"}, $breakpoint);
+}
+@function get-breakpoint($name) {
+    @if($name == small) {
+        @return $small;
+    }
+    @else if($name == medium) {
+        @return $medium;
+    }
+    @else if($name == large) {
+        @return $large;
+    }
+    @else if($name == larger) {
+        @return $larger;
+    }
+    @return $name;
+}

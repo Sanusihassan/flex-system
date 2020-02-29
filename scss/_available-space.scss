@@ -1,0 +1,90 @@
+@if($include-spacing-classes) {
+    /*
+        spacing classes are "flex-system grid classes" - a number [1-6]
+    */
+    @include flex-system();
+}
+/*
+    .available class takes the available space
+*/
+@include each-breakpoint(available, on, "available-each > *") {
+    flex: 1 1 0%;
+}
+/*
+    .order-n classes specifies element order inside the flex parent n = [1-6]
+*/
+@include orders();
+@include on(medium) {
+    @include orders(medium);
+}
+@include on(large) {
+    @include orders(large)
+}
+@include on(larger) {
+    @include orders(larger)
+}
+/*
+    flex item alignment on the main axis classes
+*/
+@include row-line-spacing();
+@include on(medium) {
+    @include row-line-spacing(medium);
+}
+@include on(large) {
+    @include row-line-spacing(large);
+}
+@include on(larger) {
+    @include row-line-spacing(larger);
+}
+/*
+    flex lines alignment classes
+*/
+@include row-line-spacing("", hello world);
+@include on(medium) {
+    @include row-line-spacing(medium, this is flex-system-css)
+}
+@include on(large) {
+    @include row-line-spacing(large, flex-box is awsome)
+}
+@include on(larger) {
+    @include row-line-spacing(larger, what do you think)
+}
+/*
+    aligment on the cross axis classes for flex parent
+*/
+@include cross-spacing();
+@include on(medium) {
+    @include cross-spacing(medium)
+}
+@include on(large) {
+    @include cross-spacing(large)
+}
+@include on(larger) {
+    @include cross-spacing(larger)
+}
+/*
+    flex item alignment on the cross axis classes
+*/
+@include cross-spacing("", self);
+@include on(medium) {
+    @include cross-spacing(medium, self)
+}
+@include on(large) {
+    @include cross-spacing(large, self)
+}
+@include on(larger) {
+    @include cross-spacing(larger, self)
+}
+/*
+    auto margins classes
+*/
+@include auto-margins();
+@include on(medium) {
+    @include auto-margins(medium)
+}
+@include on(large) {
+    @include auto-margins(large)
+}
+@include on(larger) {
+    @include auto-margins(larger)
+}

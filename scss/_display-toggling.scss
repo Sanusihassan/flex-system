@@ -1,0 +1,38 @@
+/*
+    display toggling classes
+*/
+.none {
+    display: none;
+}
+//display on breakpoint ranges
+@include each-range(display, true, false) {
+    display: flex;
+    &.as-block {
+        display: block;
+    }
+}
+//display starting at a breakpoint
+@include on(medium) {
+    .display-from-medium {
+        display: flex;
+        &.as-block {
+            display: block;
+        }
+    }
+}
+@include on(large) {
+    .display-from-large {
+        display: flex;
+        &.as-block {
+            display: block;
+        }
+    }
+}
+@include on(larger) {
+    .display-onlarger {
+        display: flex;
+        &.as-block {
+            display: block;
+        }
+    }
+}
