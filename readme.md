@@ -396,7 +396,7 @@ The `.circle` class makes an element to appear like a circle.
   <!-- circle -->
   <img src="image.jpg" class="circle">
   <!-- .capsule or .sausage -->
-  <button class="capsule">🌭 button</button>
+  <button class="capsule">sausage button</button>
 ```
 #### Text Formatting
 |Class|Output|
