@@ -25,10 +25,10 @@
 flex-system.css is an easy to use, mobile first responsive grid system framework based on css [flex-box](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox - Learn web development | MDN").
 ___
 ## Instalation
-* ```bash
+```bash
   npm install flex-system --save ;)
   ```
-* ```html
+```html
   <link rel="stylesheet" href="cdn.flex-system.com">
   ```
 
@@ -68,11 +68,11 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
 #### Flex Row Container
 `.flex-row`, `.row-on{$breakpoint}`, `.row-reversed` are (main/row)-aixs parents, their children/flex-items flows in a **row** or **row reversed** direction.
 #### Flex Column Container
-`.flex-column, .column-on{$breakpoint}, .column-reversed` creates a cross-axis parents, flex-items are stacked one after the the another or the opposite direction
+`.flex-column, .column-on{$breakpoint}, .column-reversed` creates a cross-axis parents, flex-items are stacked one after the the another or the opposite direction.
 
 The _**flex row**_ and _**flex column**_ classes are displayed as flex.
 
-The `.inline-flex` class makes an element to be displayed as `inline-flex` container, it can be used width <q>flex row</q> containers and <q>flex column containers</q>
+The `.inline-flex` class makes an element to be displayed as `inline-flex` container, it can be used width <q>flex row</q> containers and <q>flex column containers</q>.
 ```html
   <div class="column-onsmall flex-row">
     <!-- onsmall stack on top of each other, but from medium and up stay in one row -->
@@ -89,6 +89,11 @@ In flex-system, flex items are defined to shrink if there is no space available,
   <div class="flex-column no-shrink">
     <div class="half">half</div>
     <div class="half">half</div>
+    <div class="half">half</div>
+  </div>
+  <div class="flex-row">
+    <div class="half">half</div>
+    <div class="half">`.no-shirink` can be used in an individual flex items</div>
     <div class="half">half</div>
   </div>
 ```
