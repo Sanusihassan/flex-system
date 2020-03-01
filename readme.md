@@ -31,15 +31,15 @@ ___
 * ```html
   <link rel="stylesheet" href="cdn.flex-system.com">
   ```
-* download [source files](https://flex-system.com/download-source) from [flex-system.com](https://flex-system.com)
+
 ## Usage
-* `.container` class creates a container a wrapper around elements
+* `.container` class creates a container or a wrapper around elements.
  * `.container.on{$breakpoint}full-screen` takes the entire width of the screen.
 
  `$breakpoint` = \[`small-`, `medium-`, `large-`, `larger-`\]
  * `.container.sp-right-0` specifies that there is no white space on the right side of the
    `.container` class.
- * `.container.sp-left-0` does the same thing but in the left direction
+ * `.container.sp-left-0` does the same thing but in the left direction.
    * the `.container.sp-{left/right}-0` works only from large screens and up.
 
 Use `.flex-sys.container` to reduce conflict if you are using another css framework that uses the same name.
@@ -66,7 +66,7 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
 </section>
 ```
 #### Flex Row Container
-`.flex-row`, `.row-on{$breakpoint}`, `.row-reversed` are (main/row)-aixs parents, their children/flex-items flows in a **row** or **row reversed** direction
+`.flex-row`, `.row-on{$breakpoint}`, `.row-reversed` are (main/row)-aixs parents, their children/flex-items flows in a **row** or **row reversed** direction.
 #### Flex Column Container
 `.flex-column, .column-on{$breakpoint}, .column-reversed` creates a cross-axis parents, flex-items are stacked one after the the another or the opposite direction
 
@@ -131,7 +131,7 @@ Where `$class-name` is consist of a `prefix` and a `suffix`.
 ```
 **Note:** the empty suffixes in the global breakpoint means that there is no `suffix` for this class. and it is written as `prefix` like `half`, `fill`, e.t.c.
 
-The `"slice"` `prefix` is only used with \[`1`, `2`, `5`, `7` to `11`\] `suffixes`
+The `"slice"` `prefix` is only used with \[`1`, `2`, `5`, `7` to `11`\] `suffixes`.
 
 `3`, `4`, `6` and `12` prefixes are replaced with `fourth`, `third`, `half`, `fill` respectivly.
 
@@ -186,7 +186,7 @@ The `.{$breakpoint}row-$direction` classes specifies flex items alignment within
 
 `$direction` = \[`start`, `end`, `center`\].
 
-`start` is the default value. and it's used only from medium and up.
+`start` is the default value. and it can be used from medium and up.
 
 The `.space-$direction` or `.{$breakpoint}sp-$direction` classes are used to distribute available space in the main axis.
 
@@ -211,8 +211,8 @@ Flex lines alignment classes sets the distribution of space between and around c
 
 Flex lines alignment classes are the same as main axis alignment classes with some expectations.
 
-* insteade of `row` prefix use the `line` prefix
-* insteade of `space` prefix use the `line-sp-` prefix
+* insteade of `row` prefix use the `line` prefix.
+* insteade of `space` prefix use the `line-sp-` prefix.
 * the line alignment classes contains the `stretch` value as in `.line-stretch`.
 > the `start` value is used by default in flex-system, if you want the property's default value use the `.default` or `.line-stretch` classes.
 #### Example
@@ -276,10 +276,14 @@ The `.{$breakpoint}self-$direction` classes specifies the distribution of the av
 `$direction` = \[`top`, `right`, `bottom`, `left`\]
 #### Example
 ```html
-  <div class="flex-row">
-    <div class="push-right onsmall-push-left">i will go right from medium and up</div>
-    <div class="center-x onmedium-center-y">horizontally centered, vertically centered onmedium</div>
-    <div class="onlarger-push-right"></div>
+  <div class="flex-row default">
+    <div class="push-right onmedium-left">left onsmall, right onmedium (centered)</div>
+  </div>
+  <div class="flex-row default">
+    <div class="center-x onmedium-center-y">horizontally centered and vertically centered onmedium</div>
+  </div>
+  <div class="flex-row default">
+    <div class="onlarger-right">i'll go right onlarger screens</div>
   </div>
 ```
 ### Display Toggling Classes

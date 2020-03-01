@@ -124,8 +124,7 @@
     @each $dir, $oppos in $directions {
         $push: if($breakpoint == "", push-, "");
         .#{$breakpoint}#{$push}#{$oppos} {
-            margin: 0;
-            margin-#{$dir}: auto !important;
+            margin-#{$dir}: auto;
         }
         .#{$breakpoint}center-x {
             @if($dir == left or $dir == right) {

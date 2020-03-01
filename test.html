@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/flex-system.css">
+    <style>
+        .flex-row > * {
+            border: 1px solid;
+            padding: 15px;
+        }
+        .flex-row {
+            height: 120px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-row default">
+        <div class="push-right onmedium-left">left onsmall, right onmedium (centered)</div>
+    </div>
+    <div class="flex-row default">
+        <div class="center-x onmedium-m0">horizontally centered and vertically centered onmedium</div>
+    </div>
+    <div class="flex-row default">
+        <div class="onlarger-right">i'll go right onlarger screens</div>
+    </div>
+</body>
+</html>

@@ -67,7 +67,7 @@
         .m#{$name}-0 {
             margin-#{$dir}: 0;
         }
-        .margin-0 {
+        .m0 {
             @extend .m#{$name}-0;
         }
     }
@@ -93,7 +93,7 @@
         }
     }
     body:not(.default) {
-        @extend .margin-0;
+        @extend .m0;
     }
     @include text-alignment-classes();
     @include on(medium) {
@@ -126,8 +126,8 @@
     }
     ul:not(.default), ol:not(.default) {
         list-style-type: none;
-        @extend .margin-0;
-        @extend .padding-0;
+        @extend .m0;
+        @extend .p0;
     }
     [type], textarea, button {
         &:not(.default) {
@@ -138,7 +138,11 @@
         resize: none;
     }
     @include reset-margin();
-    .padding-0 {
+   //each-breakpoint($name, $prefix: on, $alternative: "")
+    @include each-breakpoint(m0) {
+        margin: 0;
+    }
+    .p0 {
         padding: 0;
     }
     .no-select {
