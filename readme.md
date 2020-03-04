@@ -12,13 +12,13 @@
 
 flex-system.css is an easy to use, mobile first responsive grid system framework based on css [flex-box](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox - Learn web development | MDN").
 ___
-## Instalation
+<!-- ## Instalation
 ```bash
-  npm install flex-system --save ;)
+  npm install flex-system
   ```
 ```html
-  <link rel="stylesheet" href="cdn.flex-system.com">
-  ```
+  <link rel="stylesheet" href="cdn-link-to-flex-system.com">
+  ``` -->
 
 ## Usage
 * `.container` class creates a container or a wrapper around elements.
