@@ -415,9 +415,9 @@ The `.circle` class makes an element to appear like a circle.
 #### Text Formatting
 |Class|Difinition|
 |--- |--- |
-|`.cap`|sets text-transform to capitalize|
-|`.upper`|sets text-transform to uppercase|
-|`.lower`|sets text-transform to lowercase|
+|`.cap`|transforms text into capitalize style|
+|`.upper`|transforms text into uppercase|
+|`.lower`|transforms text into lowercase|
 
 `.text-nowrap` class suppresses line break (text wrapping).
 
