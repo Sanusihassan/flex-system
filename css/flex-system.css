@@ -110,7 +110,7 @@
   -ms-flex-line-pack: start;
       align-content: flex-start;
 }
-.flex-row.noshrink > *, .flex-row .noshrink, .flex-column.noshrink > *, .flex-column .noshrink, .row-reversed.noshrink > *, .row-reversed .noshrink, .column-reversed.noshrink > *, .column-reversed .noshrink {
+.flex-row.noshrink-each > *, .flex-row .noshrink, .flex-column.noshrink-each > *, .flex-column .noshrink, .row-reversed.noshrink-each > *, .row-reversed .noshrink, .column-reversed.noshrink-each > *, .column-reversed .noshrink {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
@@ -3446,6 +3446,11 @@ textarea:not(.default) {
 
 .fixd {
   position: fixed;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .clip-overflow {
