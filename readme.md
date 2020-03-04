@@ -8,19 +8,7 @@
 |/                        \|                       
 
 -->
-<style>
-  h1:not(.ignore), h2:not(.ignore), h3:not(.ignore), h4:not(.ignore), h5:not(.ignore), h6:not(.ignore) {
-    text-transform: capitalize;
-  }
-  .small {
-    text-transform: lowercase;
-  }
-  .nowrap {
-    white-space: nowrap;
-    overflow: auto;
-  }
-</style>
-<h1 class="ignore">What Is flex-system.css</h1>
+<h1>What Is flex-system.css</h1>
 
 flex-system.css is an easy to use, mobile first responsive grid system framework based on css [flex-box](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox - Learn web development | MDN").
 ___
@@ -449,7 +437,7 @@ Use the `.clip-overflow` to hide the overflowed content of any element.
 ### Sass
 if you are using sass, flex-system offers two files that can help you in writing faster css.
 
-<h4 class="ignore">_placeholder-variables.scss file</h4>
+<h4>_placeholder-variables.scss file</h4>
 
 This file contains some sass variables and placeholders.
 ```scss
@@ -474,9 +462,9 @@ This file contains some sass variables and placeholders.
     @extend %flex-column;
   }
 ```
-Take a look at the [_placeholder-variables.scss](http://link-to-file.scss) file.
+Take a look at the [_placeholder-variables.scss](https://github.com/Sanusihassan/flex-system/blob/master/scss/_placeholder-variables.scss) file.
 
-<h4 class="ignore">_breakpoints.scss file</h4>
+<h4>_breakpoints.scss file</h4>
 
 This file contains some mixins and variables that can help in writing media queries.
 ```scss
@@ -512,4 +500,4 @@ This file contains some mixins and variables that can help in writing media quer
   //or max($breakpoint)
   //or range($start, $end)
 ```
-Take a look at the [_breakpoints.scss](http://link-to-file.scss) file.
+Take a look at the [_breakpoints.scss](https://github.com/Sanusihassan/flex-system/blob/master/scss/_breakpoints.scss) file.
