@@ -42,7 +42,7 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
     <!-- flex-system container -->
   </section>
 ```
-* The remainig space `100% of the screen width - .container width` is stored in the `.remaining` class.
+* The remaining space `100% of the screen width - .container width` is stored in the `.remaining` class.
 ```html
 <aside class="remaining">
   <nav>
