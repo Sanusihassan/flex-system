@@ -75,7 +75,7 @@ The `.inline-flex` class makes an element to be displayed as `inline-flex` conta
   </div>
 ```
 
-By default when using flex-system, flex items are defined to shrink if there is no space available, if you want to specify that flex items should not shrink use the `..noshrink-each` class with a _**flex row**_ containers or _**flex column**_ containers or `.noshrink` with a flex item.
+By default when using flex-system, flex items are defined to shrink if there is no space available, if you want to specify that flex items should not shrink use the `.noshrink-each` class with a _**flex row**_ containers or _**flex column**_ containers or `.noshrink` with a flex item.
 ```html
   <div class="flex-column noshrink-each">
     <div>flex item</div>
@@ -245,7 +245,7 @@ Flex lines alignment classes are the same as main axis alignment classes with so
   </div>
 ```
 
-### Aligment On The Cross Axis Classes For Flex Parent
+### Alignment On The Cross Axis Classes For Flex Parent
 The `.{$breakpoint}cross-$direction` classes are used to distribute space in the cross axis of a flex container.
 
 `$direction` = \[`start`, `center`, `end`, `baseline`, `stretch`\]
@@ -267,7 +267,7 @@ The `.{$breakpoint}cross-$direction` classes are used to distribute space in the
     ...
   </div>
 ```
-### Aligment On The Cross Axis Classes For Flex Item
+### Alignment On The Cross Axis Classes For Flex Item
 The `.{$breakpoint}self-$direction` classes specifies the distribution of the available space in the cross axis for a flex item.
 `$direction` = \[`start`, `center`, `end`, `baseline`, `stretch`\].
 #### Example
@@ -285,13 +285,13 @@ The `.{$breakpoint}self-$direction` classes specifies the distribution of the av
 #### Example
 ```html
   <div class="flex-row default">
-    <div class="push-right onmedium-left">left onsmall, right onmedium (centered)</div>
+    <div class="push-right">i will be pushed to the left</div>
   </div>
   <div class="flex-row default">
-    <div class="center-x onmedium-center-y">horizontally centered and vertically centered onmedium</div>
+    <div class="onmedium-center-y">vertically centered from medium and up</div>
   </div>
   <div class="flex-row default">
-    <div class="onlarger-right">i'll go right onlarger screens</div>
+    <div class="onlarger-right">i'll go right onlarger screens and up</div>
   </div>
 ```
 ### Display Toggling Classes
@@ -314,7 +314,7 @@ If you want to display an element as block use the `.display-from-{$breakpoint}.
   </div>
 ```
 ### Responsive Typography
-flex-system.css supports responsive typograhy.
+flex-system.css supports responsive typography.
 #### Headings
 by default headings font-size is scalable when using flex system.
 #### Examples
@@ -413,14 +413,13 @@ The `.circle` class makes an element to appear like a circle.
   <button class="capsule">sausage button</button>
 ```
 #### Text Formatting
-|Class|Output|
+|Class|Difinition|
 |--- |--- |
-|`.cap`|<span style="text-transform: capitalize;">flex system</span>|
-|`.upper`|<span style="text-transform: uppercase">flex system</span>|
-|`.lower`|<div style="text-transform: uppercase">upper case contains <span style="text-transform: lowercase">lower case</span> characters</div>|
+|`.cap`|sets text-transform to capitalize|
+|`.upper`|sets text-transform to uppercase|
+|`.lower`|sets text-transform to lowercase|
 
 `.text-nowrap` class suppresses line break (text wrapping).
-<p class="nowrap">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit explicabo itaque modi, quia rem numquam dolorum sed id optio tenetur recusandae consectetur temporibus sint, expedita animi nulla nemo magni quam!</p>
 
 `.system-font` class makes an elements font to be like the devices system font.
 #### Positioning Classes
