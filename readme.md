@@ -59,7 +59,7 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
 
 `.flex-row`, `.row-on{$breakpoint}`, `.row-reversed` are (main/row)-aixs parents, their children/flex-items flows in a **row** or **row reversed** direction.
 #### Flex Column Containers
-`.flex-column`, `.column-on{$breakpoint}`, `.column-reversed` creates a cross-axis parents, flex-items are stacked one after the the another or the opposite direction.
+`.flex-column`, `.column-on{$breakpoint}`, `.column-reversed` creates a cross-axis parents, flex-items are stacked one after the another or the opposite direction.
 
 The _**flex row**_ and _**flex column**_ classes are displayed as flex.
 
