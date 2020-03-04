@@ -178,4 +178,19 @@
     .system-font {
         @extend %system-font;
     }
+    .rel {
+        position: relative;
+    }
+    .abs {
+        position: absolute;
+    }
+    .fixd {
+        position: fixed;
+    }
+    .sticky {
+        position: sticky;
+    }
+    .clip-overflow {
+        overflow: hidden;
+    }
 }

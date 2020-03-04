@@ -90,7 +90,7 @@
     &, & > * {
         @include border-box();
     }
-    &.no-shrink > *, .no-shrink {
+    &.noshrink-each > *, .noshrink {
         flex-shrink: 0;
     }
 }

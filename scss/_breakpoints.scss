@@ -1,8 +1,21 @@
 ///   flex-system.css v1.1
 ///   (c) 2019 - 2020 by Sanusi Hassan
 ///   licance: MIT
-
-@import "./functions";
+@function get-breakpoint($name) {
+    @if($name == small) {
+        @return $small;
+    }
+    @else if($name == medium) {
+        @return $medium;
+    }
+    @else if($name == large) {
+        @return $large;
+    }
+    @else if($name == larger) {
+        @return $larger;
+    }
+    @return $name;
+}
 //breakpoint variables
 $small: 599.99px;
 $medium: 600px;

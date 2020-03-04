@@ -34,13 +34,14 @@ ___
 
 ## Usage
 * `.container` class creates a container or a wrapper around elements.
- * `.container.on{$breakpoint}full-screen` takes the entire width of the screen.
+ * `.container.on{$breakpoint}full-screen` takes the entire width of the screen within the specified range.
 
  `$breakpoint` = \[`small-`, `medium-`, `large-`, `larger-`\]
  * `.container.sp-right-0` specifies that there is no white space on the right side of the
    `.container` class.
  * `.container.sp-left-0` does the same thing but in the left direction.
-   * the `.container.sp-{left/right}-0` works only from large screens and up.
+ 
+ * the `.container.sp-{left/right}-0` works only from large screens and up.
 
 Use `.flex-sys.container` to reduce conflict if you are using another css framework that uses the same name.
 ```html
@@ -53,7 +54,7 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
     <!-- flex-system container -->
   </section>
 ```
-* The remainig space `100% of the screen width - .container width` is stored in the `.remaining` class
+* The remainig space `100% of the screen width - .container width` is stored in the `.remaining` class.
 ```html
 <aside class="remaining">
   <nav>
@@ -65,14 +66,16 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
   <!-- main content -->
 </section>
 ```
-#### Flex Row Container
+
+#### Flex Row Containers
+
 `.flex-row`, `.row-on{$breakpoint}`, `.row-reversed` are (main/row)-aixs parents, their children/flex-items flows in a **row** or **row reversed** direction.
-#### Flex Column Container
-`.flex-column, .column-on{$breakpoint}, .column-reversed` creates a cross-axis parents, flex-items are stacked one after the the another or the opposite direction.
+#### Flex Column Containers
+`.flex-column`, `.column-on{$breakpoint}`, `.column-reversed` creates a cross-axis parents, flex-items are stacked one after the the another or the opposite direction.
 
 The _**flex row**_ and _**flex column**_ classes are displayed as flex.
 
-The `.inline-flex` class makes an element to be displayed as `inline-flex` container, it can be used width <q>flex row</q> containers and <q>flex column containers</q>.
+The `.inline-flex` class makes an element to be displayed as `inline-flex` container, it can be used width **<q>flex row</q>** containers and **<q>flex column</q>** containers.
 ```html
   <div class="column-onsmall flex-row">
     <!-- onsmall stack on top of each other, but from medium and up stay in one row -->
@@ -84,17 +87,18 @@ The `.inline-flex` class makes an element to be displayed as `inline-flex` conta
   </div>
 ```
 
-In flex-system, flex items are defined to shrink if there is no space available, if you want to specify that flex items should not shrink use the `.no-shrink` class with a _**flex row**_ containers or _**flex column**_ containers.
+By default when using flex-system, flex items are defined to shrink if there is no space available, if you want to specify that flex items should not shrink use the `..noshrink-each` class with a _**flex row**_ containers or _**flex column**_ containers or `.noshrink` with a flex item.
 ```html
-  <div class="flex-column no-shrink">
-    <div class="half">half</div>
-    <div class="half">half</div>
-    <div class="half">half</div>
+  <div class="flex-column noshrink-each">
+    <div>flex item</div>
+    <div>flex item</div>
+    <div>flex item</div>
+    <div>flex item</div>
   </div>
   <div class="flex-row">
-    <div class="half">half</div>
-    <div class="half">`.no-shirink` can be used in an individual flex items</div>
-    <div class="half">half</div>
+    <div>flex item</div>
+    <div class="noshrink">.noshrink can be used with a flex items</div>
+    <div>flex item</div>
   </div>
 ```
 ## Wrapping behavior
@@ -117,9 +121,7 @@ Grid system classes specifies element dimentions inside a flex parent.
 
 flex-system uses 12 columns grid system.
 ### Syntax
-`$class-name`
-
-Where `$class-name` is consist of a `prefix` and a `suffix`.
+`{$breakpoint}{$prefix-}{$suffix}`
 
 |Breakpoint Name|Breakpoint Range|Prefix|Suffix|
 |--- |--- |--- |--- |
@@ -137,13 +139,26 @@ Where `$class-name` is consist of a `prefix` and a `suffix`.
 **Note:** the empty suffixes in the global breakpoint means that there is no `suffix` for this class. and it is written as `prefix` like `half`, `fill`, e.t.c.
 
 The `"slice"` `prefix` is only used with \[`1`, `2`, `5`, `7` to `11`\] `suffixes`.
-
+```html
+  <div class="flex-row">
+    <div class="slice-1">one slice out of 12 slices</div>
+    <div class="slice-2">2 slices out of 12</div>
+    <div class="slice-7">slice-7 (7 slices)</div>
+  </div>
+```
 `3`, `4`, `6` and `12` prefixes are replaced with `fourth`, `third`, `half`, `fill` respectivly.
-
+```html
+  <div class="flex-column">
+    <div class="half">.half (100%/2) = 50%</div>
+    <div class="third">.third (100%/3) ~= 33.3333333333%</div>
+    <div class="fourth">.fourth (100%/4) = 25%</div>
+    <div class="fill">.fill (100%)</div>
+  </div>
+```
 ## Spacing Classes
-Spacing classes are "grid classes" - a number `$n`, which is \[`1`-`6`\], and they work within the specified range.
+Spacing classes are "grid classes" - a number `$n`, which is \[`1 - 6`\], and they work within the specified range.
 ### Syntax
-`$class-name-m$n`
+`{$breakpoint}{$prefix-}{$suffix-}m$n`
 
 #### Example
 ```html
@@ -168,12 +183,12 @@ Spacing classes are "grid classes" - a number `$n`, which is \[`1`-`6`\], and th
     <!-- (2 slices) ~ 16.666% -->
     <div class="slice-2"></div>
     <!-- the available space (10 slices) ~ 83.334% -->
-    <div class="available"></div>
+    <div class="available">i'll take the available space globally</div>
   </div>
 ```
 
 ### Element Order
-`.{$breakpoint}order-$n` classes specifies element order inside the flex parent `$n` = \[`1`-`6`\].
+`.{$breakpoint}order-$n` classes specifies element order inside the flex parent `$n` = \[`1 - 6`\].
 
 `$breakpoint` = \[ , `onmedium-`, `onlarge-`, `onlarger-`\].
 #### Example
@@ -375,7 +390,7 @@ The element content will be resized to maintain its aspect ratio while filling t
 
 The `img.middle-vertically`, `video.middle-vertically` makes an image or a video to be centered vertically
 #### reseting
-flex system is adding some styles for some elements and they will be ignored if `.default` class is used
+flex system is adding some styles for some elements and they will be ignored if `.default` class is used.
 
 A <a href="#">link</a> `(anchor tag)` is styled by removing the <u><a href="#">underline</a></u> and the default color making it's color to be the color of it's containing element.
 
@@ -420,3 +435,81 @@ The `.circle` class makes an element to appear like a circle.
 <p class="nowrap">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit explicabo itaque modi, quia rem numquam dolorum sed id optio tenetur recusandae consectetur temporibus sint, expedita animi nulla nemo magni quam!</p>
 
 `.system-font` class makes an elements font to be like the devices system font.
+#### Positioning Classes
+positioning classes specifies how element is positioned.
+
+|Class|Difinition|
+|--- |--- |
+|`.rel`|relative positioning|
+|`.abs`|absolute positioning|
+|`.fixd`|fixed positioning|
+|`.sticky`|sticky positioning|
+
+Use the `.clip-overflow` to hide the overflowed content of any element.
+### Sass
+if you are using sass, flex-system offers two files that can help you in writing faster css.
+
+<h4 class="ignore">_placeholder-variables.scss file</h4>
+
+This file contains some sass variables and placeholders.
+```scss
+  //grid system variables
+  .custom {
+    width: $half/3;
+    .example {
+      left: $slice-1 * 2;
+    }
+  }
+  //typography variables
+  /*
+    increase or decrease the $amount variable to change the size of a typography variable
+  */
+  h1 {
+    $amount: 0.5rem;//0.79rem is the default value
+    font-size: $h1;//or $h2 to $h6
+  }
+  //placeholders
+  .custom-flex {
+    @extend %flex;//or @extend %inline-flex;
+    @extend %flex-column;
+  }
+```
+Take a look at the [_placeholder-variables.scss](http://link-to-file.scss) file.
+
+<h4 class="ignore">_breakpoints.scss file</h4>
+
+This file contains some mixins and variables that can help in writing media queries.
+```scss
+  //the on() mixin
+  /*
+    syntax: @include on($start, ?$to, ?$end) {
+      //content
+    }
+    $start (required) = [small, medium, large, larger, medium-to-large, large-to-larger, $value, max]
+    $to (optional) = to
+    $end (optional) = [medium, large, larger, $value]
+  */
+  //example
+  .example {
+    @include on(small) {
+      font-weight: bold;
+    }
+    @include on(medium) {
+      text-transform: uppercase;
+    }
+  }
+  .example-2 {
+    @include on(large-to-larger) {//or @include on(large, to, larger)
+      position: absolute;
+      width: $third;
+    }
+    @include on($small, to, 900px) {
+      bottom: 0;
+    }
+  }
+  //the on() mixin is a short way of writing
+  //min($breakpoint)
+  //or max($breakpoint)
+  //or range($start, $end)
+```
+Take a look at the [_breakpoints.scss](http://link-to-file.scss) file.

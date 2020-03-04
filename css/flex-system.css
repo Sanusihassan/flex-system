@@ -110,7 +110,7 @@
   -ms-flex-line-pack: start;
       align-content: flex-start;
 }
-.flex-row.no-shrink > *, .flex-row .no-shrink, .flex-column.no-shrink > *, .flex-column .no-shrink, .row-reversed.no-shrink > *, .row-reversed .no-shrink, .column-reversed.no-shrink > *, .column-reversed .no-shrink {
+.flex-row.noshrink > *, .flex-row .noshrink, .flex-column.noshrink > *, .flex-column .noshrink, .row-reversed.noshrink > *, .row-reversed .noshrink, .column-reversed.noshrink > *, .column-reversed .noshrink {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
@@ -3434,4 +3434,20 @@ textarea:not(.default) {
 
 .text-nowrap {
   white-space: nowrap;
+}
+
+.rel {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+}
+
+.fixd {
+  position: fixed;
+}
+
+.clip-overflow {
+  overflow: hidden;
 }

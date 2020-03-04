@@ -19,18 +19,3 @@
 @function rename-breakpoint($breakpoint: "") {
     @return if($breakpoint != "", on#{$breakpoint}#{"-"}, $breakpoint);
 }
-@function get-breakpoint($name) {
-    @if($name == small) {
-        @return $small;
-    }
-    @else if($name == medium) {
-        @return $medium;
-    }
-    @else if($name == large) {
-        @return $large;
-    }
-    @else if($name == larger) {
-        @return $larger;
-    }
-    @return $name;
-}
