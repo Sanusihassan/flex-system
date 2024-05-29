@@ -1,0 +1,46 @@
+@mixin hide($breakpoint: "") {
+    $suffix: if($breakpoint !="", "-#{$breakpoint}", "");
+
+    %none#{$breakpoint},
+    %hide#{$suffix} {
+        display: none;
+    }
+
+    @if($suffix !="") {
+        %hide-on#{$suffix} {
+            display: none;
+        }
+    }
+}
+
+@mixin display-toggling {
+    %block {
+        display: block;
+    }
+
+    %inline-block {
+        display: inline-block;
+    }
+
+    %initial {
+        display: initial;
+    }
+
+    @include hide();
+
+    @include on(medium) {
+        @include hide(md);
+    }
+
+    @include on(large) {
+        @include hide(lg);
+    }
+
+    @include on(larger) {
+        @include hide(xl);
+    }
+
+    @include on(extra-large) {
+        @include hide(xxl);
+    }
+}

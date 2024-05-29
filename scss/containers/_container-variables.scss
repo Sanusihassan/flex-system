@@ -1,0 +1,19 @@
+@use "sass:math";
+
+$container-avg-width: 85;
+$container-avg-width-percent: math.div($container-avg-width, 100);
+
+@mixin container-variables {
+    // liquid width container widths
+    --container-xs-w: 100%;
+    --container-md-w: 85%;
+    --container-lg-w: 80%;
+    --container-xl-w: 80%;
+    --container-xxl-w: 80%;
+    // fixed width container widths
+    --container-xs-fixed-w: 100%;
+    --container-md-fixed-w: #{$container-avg-width-percent * $md};
+    --container-lg-fixed-w: #{$container-avg-width-percent * $lg};
+    --container-xl-fixed-w: #{$container-avg-width-percent * $xl};
+    --container-xxl-fixed-w: #{$container-avg-width-percent * $xxl};
+}

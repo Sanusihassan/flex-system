@@ -1,0 +1,35 @@
+@mixin wraping($breakpoint: "") {
+    $suffix: if($breakpoint !="", "-#{$breakpoint}", "");
+
+    %wrap#{$suffix} {
+        flex-wrap: wrap;
+    }
+
+    %wrap-reversed#{$suffix} {
+        flex-wrap: wrap-reverse;
+    }
+
+    %nowrap#{$suffix} {
+        flex-wrap: nowrap;
+    }
+}
+
+@mixin wrap {
+    @include wraping();
+
+    @include on(medium) {
+        @include wraping(md);
+    }
+
+    @include on(large) {
+        @include wraping(lg);
+    }
+
+    @include on(larger) {
+        @include wraping(xl);
+    }
+
+    @include on(extra-large) {
+        @include wraping(xxl);
+    }
+}

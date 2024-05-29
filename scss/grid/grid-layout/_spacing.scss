@@ -1,0 +1,15 @@
+@import "./spacing/inline-spacing";
+@import "./spacing/block-spacing";
+@import "./spacing/grid-spacing";
+
+@mixin inline-space($value) {
+    justify-content: $value;
+}
+
+@mixin block-space($value) {
+    align-items: $value;
+}
+
+@mixin place-items($block-cross-value, $main-inline-value) {
+    place-items: #{$block-cross-value} #{$main-inline-value};
+}

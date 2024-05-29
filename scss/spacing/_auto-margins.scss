@@ -1,0 +1,85 @@
+//auto margins classes
+
+@mixin create-auto-margins($breakpoint: "") {
+
+    // global
+    @if($breakpoint=="") {
+        %push-bottom {
+            margin-top: auto;
+        }
+
+        %push-left {
+            margin-right: auto;
+        }
+
+        %push-top {
+            margin-bottom: auto;
+        }
+
+        %push-right {
+            margin-left: auto;
+        }
+
+        %push-center-x {
+            @extend %push-left;
+            @extend %push-right;
+        }
+
+        %push-center-y {
+            @extend %push-top;
+            @extend %push-bottom;
+        }
+    }
+
+    @else {
+        %push-bottom-#{$breakpoint} {
+            margin-top: auto;
+        }
+
+        %push-left-#{$breakpoint} {
+            margin-right: auto;
+        }
+
+        %push-top-#{$breakpoint} {
+            margin-bottom: auto;
+        }
+
+        %push-right-#{$breakpoint} {
+            margin-left: auto;
+        }
+
+        %push-center-x-#{$breakpoint} {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        %push-center-y-#{$breakpoint} {
+            margin-bottom: auto;
+            margin-top: auto;
+        }
+    }
+}
+
+@mixin auto-margins() {
+    @include create-auto-margins("");
+
+    @include on(small) {
+        @include create-auto-margins(sm)
+    }
+
+    @include on(medium) {
+        @include create-auto-margins(md)
+    }
+
+    @include on(large) {
+        @include create-auto-margins(lg)
+    }
+
+    @include on(larger) {
+        @include create-auto-margins(xl)
+    }
+
+    @include on(extra-large) {
+        @include create-auto-margins(xxl)
+    }
+}

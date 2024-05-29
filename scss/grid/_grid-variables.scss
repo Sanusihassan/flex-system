@@ -1,0 +1,8 @@
+@use "sass:math";
+$one-slice: math.div(100%, 12);
+
+@mixin grid-variables() {
+    @for $i from 1 through 12 {
+        --#{col-}#{$i}: #{$one-slice * $i};
+    }
+}

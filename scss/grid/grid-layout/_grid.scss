@@ -1,0 +1,33 @@
+@use 'sass:string';
+@import "./functions";
+@import "./mixins";
+
+@mixin grid {
+    %grid {
+        display: grid;
+    }
+
+    %inline-grid {
+        display: -ms-inline-grid;
+        display: -moz-inline-grid;
+        display: inline-grid;
+    }
+
+    %sub-grid {
+        grid-template-columns: subgrid;
+    }
+
+    %auto-columns {
+        grid-auto-flow: column;
+    }
+
+    %auto-row {
+        grid-auto-flow: row;
+    }
+
+    %auto-dense {
+        grid-auto-flow: dense;
+    }
+}
+
+@import "./spacing";

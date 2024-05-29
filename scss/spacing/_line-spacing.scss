@@ -1,0 +1,31 @@
+@mixin create-line-spacing($breakpoint: "") {
+    $suffix: if($breakpoint !="", "#{$breakpoint}-", "");
+
+    %line-#{$suffix}start {
+        align-content: flex-start;
+    }
+
+    %line-#{$suffix}end {
+        align-content: flex-end;
+    }
+
+    %line-#{$suffix}center {
+        align-content: center;
+    }
+
+    %line-#{$suffix}between {
+        align-content: space-between;
+    }
+
+    %line-#{$suffix}around {
+        align-content: space-around;
+    }
+
+    %line-#{$suffix}evenly {
+        align-content: space-evenly;
+    }
+
+    %line-#{$suffix}stretch {
+        align-content: stretch;
+    }
+}

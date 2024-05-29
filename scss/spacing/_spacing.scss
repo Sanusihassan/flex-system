@@ -1,0 +1,129 @@
+// spacing:
+@mixin spacing {
+
+    // row cross spacings:
+    %row,
+    %flex,
+    %flex-row,
+    %row-reversed {
+        // main spacing
+        @include create-main-spacing();
+
+        @include on(medium) {
+            @include create-main-spacing(md)
+        }
+
+        @include on(large) {
+            @include create-main-spacing(lg)
+        }
+
+        @include on(larger) {
+            @include create-main-spacing(xl)
+        }
+
+        @include on(extra-large) {
+            @include create-main-spacing(xxl)
+        }
+
+        // cross-spacing
+        @include create-cross-spacing();
+
+        @include on(medium) {
+            @include create-cross-spacing(md)
+        }
+
+        @include on(large) {
+            @include create-cross-spacing(lg)
+        }
+
+        @include on(larger) {
+            @include create-cross-spacing(xl)
+        }
+
+        @include on(extra-large) {
+            @include create-cross-spacing(xxl)
+        }
+    }
+
+
+    // column cross spacings:
+    %flex-column,
+    %column-reversed, %column {
+        // main spacing
+        @include create-main-spacing();
+
+        @include on(medium) {
+            @include create-main-spacing(md, column)
+        }
+
+        @include on(large) {
+            @include create-main-spacing(lg, column)
+        }
+
+        @include on(larger) {
+            @include create-main-spacing(xl, column)
+        }
+
+        @include on(extra-large) {
+            @include create-main-spacing(xxl, column)
+        }
+
+        // cross-spacing
+        @include create-cross-spacing("", column);
+
+        @include on(medium) {
+            @include create-cross-spacing(md, column)
+        }
+
+        @include on(large) {
+            @include create-cross-spacing(lg, column)
+        }
+
+        @include on(larger) {
+            @include create-cross-spacing(xl, column)
+        }
+
+        @include on(extra-large) {
+            @include create-cross-spacing(xxl, column)
+        }
+    }
+
+
+    // line spacing:
+    @include create-line-spacing("");
+
+    @include on(medium) {
+        @include create-line-spacing(md);
+    }
+
+    @include on(large) {
+        @include create-line-spacing(lg);
+    }
+
+    @include on(larger) {
+        @include create-line-spacing(xl);
+    }
+
+    @include on(extra-large) {
+        @include create-line-spacing(xxl);
+    }
+
+    // self spacing
+    @include create-self-spacing();
+
+    @include on(medium) {
+        @include create-self-spacing(md);
+    }
+
+    @include on(large) {
+        @include create-self-spacing(lg);
+    }
+
+    @include on(larger) {
+        @include create-self-spacing(xl);
+    }
+
+    @include on(extra-large) {
+        @include create-self-spacing(xxl);
+    }
+}

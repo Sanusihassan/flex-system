@@ -1,0 +1,38 @@
+// shorthands
+
+@mixin create-shorthands($breakpoint: "") {
+    $alternate-prefix: if($breakpoint =="", slice, $breakpoint);
+    $prefix: if($breakpoint =="", "", $breakpoint#{"-"});
+
+    %#{$prefix}flex-initial {
+        flex: initial; // flex: 0 1 auto
+    }
+
+    %#{$prefix}flex-auto {
+        flex: auto; // flex: 1 1 auto
+    }
+
+    %#{$prefix}flex-none {
+        flex: none; // flex: 0 0 auto
+    }
+}
+
+@mixin shorthands() {
+    @include create-shorthands();
+
+    @include on(medium) {
+        @include create-shorthands(md);
+    }
+
+    @include on(large) {
+        @include create-shorthands(lg);
+    }
+
+    @include on(larger) {
+        @include create-shorthands(xl);
+    }
+
+    @include on(extra-large) {
+        @include create-shorthands(xxl);
+    }
+}

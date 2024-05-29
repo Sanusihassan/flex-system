@@ -1,0 +1,61 @@
+@mixin container {
+    %fs-container {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    %container,
+    %flex-sys-container {
+        @extend %fs-container;
+
+        //liquid container
+        @include on-extrasmall {
+            width: var(--container-xs-w);
+            padding: 0 2.5%;
+        }
+
+        @include on(small) {
+            width: var(--container-md-w);
+        }
+
+        @include on(medium) {
+            width: var(--container-lg-w);
+        }
+
+        @include on(large) {
+            width: var(--container-xl-w);
+        }
+
+        @include on(larger) {
+            width: var(--container-xxl-w);
+        }
+    }
+
+    //fixed-w container
+    %fixed-width-container {
+        @extend %fs-container;
+
+        @include on-extrasmall {
+            width: var(--container-xs-fixed-w);
+            padding: 0 2.5%;
+        }
+
+        @include on(medium) {
+            width: var(--container-md-fixed-w);
+        }
+
+        @include on(large) {
+            width: var(--container-lg-fixed-w);
+        }
+
+        @include on(larger) {
+            width: var(--container-xl-fixed-w);
+        }
+
+        @include on(extra-large) {
+            width: var(--container-xxl-fixed-w);
+        }
+    }
+}

@@ -1,0 +1,81 @@
+//space distribution on the cross axis classes for flex container and for flex item
+@mixin create-cross-spacing($breakpoint: "", $layout: row) {
+    $suffix: if($breakpoint !="", "#{$breakpoint}-", "");
+
+    @if ($layout ==row) {
+        %cross-#{$suffix}start {
+            align-items: flex-start;
+        }
+
+        %cross-#{$suffix}center {
+            align-items: center;
+        }
+
+        %cross-#{$suffix}end {
+            align-items: flex-end;
+        }
+
+        %cross-#{$suffix}stretch {
+            align-items: stretch;
+        }
+
+        %cross-#{$suffix}baseline {
+            align-items: baseline;
+        }
+    }
+
+    @else if ($layout ==column) {
+        %cross-#{$suffix}start {
+            justify-content: flex-start;
+        }
+
+        %cross-#{$suffix}center {
+            justify-content: center;
+        }
+
+        %cross-#{$suffix}end {
+            justify-content: flex-end;
+        }
+
+        %cross-#{$suffix}stretch {
+            justify-content: stretch;
+        }
+
+        %cross-#{$suffix}space-between {
+            justify-content: space-between;
+        }
+
+        %cross-#{$suffix}space-around {
+            justify-content: space-around;
+        }
+
+        %cross-#{$suffix}space-evenly {
+            justify-content: space-evenly;
+        }
+    }
+}
+
+// self cross spacing
+@mixin create-self-spacing($breakpoint: "") {
+    $suffix: if($breakpoint !="", "#{$breakpoint}-", "");
+
+    %self-#{$suffix}start {
+        align-self: flex-start;
+    }
+
+    %self-#{$suffix}center {
+        align-self: center;
+    }
+
+    %self-#{$suffix}end {
+        align-self: flex-end;
+    }
+
+    %self-#{$suffix}stretch {
+        align-self: stretch;
+    }
+
+    %self-#{$suffix}baseline {
+        align-self: baseline;
+    }
+}

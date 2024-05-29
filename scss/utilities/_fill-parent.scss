@@ -1,0 +1,37 @@
+@mixin fill-parent($breakpoint: "") {
+    $suffix: if($breakpoint !="", "-#{$breakpoint}-", "");
+
+    %full-width#{$suffix},
+    %fw#{$suffix},
+    %w-100#{$suffix},
+    %full-width-each#{$suffix}>*,
+    %fw-each#{$suffix}>*,
+    %w-100-each#{$suffix}>* {
+        width: 100%;
+    }
+
+    %full-height#{$suffix},
+    %fh#{$suffix},
+    %h-100#{$suffix},
+    %full-height-each#{$suffix}>*,
+    %fh-each#{$suffix}>*,
+    %h-100-each#{$suffix}>* {
+        height: 100%;
+    }
+
+    // auto width/height
+
+    %w-auto,
+    %width-auto,
+    %w-auto-each#{$suffix}>*,
+    %width-auto-each#{$suffix}>* {
+        width: auto;
+    }
+
+    %h-auto,
+    %heigh-auto,
+    %h-auto-each#{$suffix}>*,
+    %height-auto-each#{$suffix}>* {
+        height: auto;
+    }
+}

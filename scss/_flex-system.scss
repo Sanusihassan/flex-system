@@ -1,0 +1,18 @@
+@mixin flex-system {
+    @include root;
+    @include container;
+    @include row-column-containers;
+    @include spacing;
+    @include eliminate-margins;
+    @include wrap;
+    @include available;
+    @include grid-system;
+    @include shorthands;
+    @include auto-margins;
+    @include orders;
+    @include fill-parent;
+    @include responsive-utils;
+    @include display-toggling;
+    @include grid;
+    @include grid-spacing;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "custom-flex-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "flex-box",
+    "grid",
+    "css-grid",
+    "css-flex"
+  ],
+  "author": "Sanusi Hassan",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "sass": "^1.77.2"
+  }
+}

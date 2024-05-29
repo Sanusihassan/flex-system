@@ -1,0 +1,16 @@
+@mixin responsive-utils {
+
+    %responsive-img,
+    %responsive-video {
+        @extend %responsive-canvas;
+        @extend %h-auto !optional;
+    }
+
+    %cover {
+        object-fit: cover;
+    }
+
+    %responsive-canvas {
+        max-width: 100%;
+    }
+}

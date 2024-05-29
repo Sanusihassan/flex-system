@@ -1,0 +1,7 @@
+@mixin available() {
+
+    %available,
+    %available-each>* {
+        flex: var(--portion) 1 0%;
+    }
+}

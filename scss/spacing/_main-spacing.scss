@@ -1,0 +1,51 @@
+@mixin create-main-spacing($breakpoint: "", $layout: row) {
+    $suffix: if($breakpoint !="", "#{$breakpoint}-", "");
+
+    @if ($layout ==row) {
+        %main-#{$suffix}start {
+            justify-content: flex-start;
+        }
+
+        %main-#{$suffix}center {
+            justify-content: center;
+        }
+
+        %main-#{$suffix}end {
+            justify-content: flex-end;
+        }
+
+        %main-#{$suffix}space-between {
+            justify-content: space-between;
+        }
+
+        %main-#{$suffix}space-around {
+            justify-content: space-around;
+        }
+
+        %main-#{$suffix}space-evenly {
+            justify-content: space-evenly;
+        }
+    }
+
+    @else if ($layout ==column) {
+        %main-#{$suffix}start {
+            align-items: flex-start;
+        }
+
+        %main-#{$suffix}center {
+            align-items: center;
+        }
+
+        %main-#{$suffix}end {
+            align-items: flex-end;
+        }
+
+        %main-#{$suffix}stretch {
+            align-items: stretch;
+        }
+
+        %main-#{$suffix}baseline {
+            align-items: baseline;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@import "../grid/grid-variables";
+@import "../containers/container-variables";
+
+@mixin root {
+    :root {
+        --shrink-factor: 1;
+        --grow-factor: 0;
+        // ratio of the growth
+        --ratio: 1;
+        --order: 6;
+        @include grid-variables();
+        @include container-variables;
+    }
+}

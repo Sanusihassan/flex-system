@@ -1,0 +1,53 @@
+@function implicit-explicit-grid($val) {
+    // Split the input string by spaces to handle multiple columns/rows
+    $split-values: str-split($val, " ");
+    $result: (
+    );
+
+@each $value in $split-values {
+
+    // If the value contains '*', convert it to repeat notation
+    @if str-index($value, "*") {
+        $result: append($result, convert-to-repeat($value));
+    }
+
+    @else {
+        $result: append($result, #{$value});
+    }
+}
+
+@return $result;
+}
+
+
+@function str-split($string, $separator) {
+    // empty array/list
+    $split-arr: (
+    );
+// first index of separator in string
+$index : str-index($string, $separator);
+
+// loop through string
+@while $index !=null {
+    // get the substring from the first character to the separator
+    $item: str-slice($string, 1, $index - 1);
+    // push item to array
+    $split-arr: append($split-arr, $item);
+    // remove item and separator from string
+    $string: str-slice($string, $index + 1);
+    // find new index of separator
+    $index : str-index($string, $separator);
+}
+
+// add the remaining string to list (the last item)
+$split-arr: append($split-arr, $string);
+
+@return $split-arr;
+}
+
+@function convert-to-repeat($str) {
+    $values: str-split($str, "*");
+    $v1: nth($values, 1);
+    $v2: nth($values, 2);
+    @return repeat(#{$v1}, #{$v2});
+}

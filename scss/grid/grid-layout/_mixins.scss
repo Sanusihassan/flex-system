@@ -1,0 +1,37 @@
+@mixin gtc($gtc) {
+    grid-template-columns: implicit-explicit-grid($gtc);
+}
+
+@mixin gtr($gtr) {
+    grid-template-rows: implicit-explicit-grid($gtr);
+}
+
+@mixin gta($gta) {
+    grid-template-rows: $gta;
+}
+
+@mixin gar($gar) {
+    grid-auto-rows: implicit-explicit-grid($row);
+}
+
+@mixin gac($gac) {
+    grid-auto-columns: implicit-explicit-grid($row);
+}
+
+@mixin implicit-grid($row, $column) {
+    @include gar($row);
+    @include gac($column);
+}
+
+@mixin explicit-grid($row, $column) {
+    @include gtr($row);
+    @include gtc($column);
+}
+
+@mixin row-span($span-amount) {
+    grid-row: $span-amount;
+}
+
+@mixin col-span($span-amount) {
+    grid-column: $span-amount;
+}

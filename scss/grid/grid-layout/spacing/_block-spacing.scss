@@ -1,0 +1,56 @@
+@mixin create-block-spacing($breakpoint: "") {
+    $suffix: if($breakpoint !="", "-#{$breakpoint}", "");
+
+    %block-start#{$suffix} {
+        align-items: start;
+    }
+
+    %block-end#{$suffix} {
+        align-items: end;
+    }
+
+    %block-center#{$suffix} {
+        align-items: center;
+    }
+
+    %block-stretch#{$suffix} {
+        align-items: stretch;
+    }
+
+    %block-baseline#{$suffix} {
+        align-items: baseline;
+    }
+
+    %block-space-between#{$suffix} {
+        align-items: space-between;
+    }
+
+    %block-space-around#{$suffix} {
+        align-items: space-around;
+    }
+
+    %block-space-evenly#{$suffix} {
+        align-items: space-evenly;
+    }
+}
+
+// block spacing:
+@mixin block-spacing {
+    @include create-block-spacing("");
+
+    @include on(medium) {
+        @include create-block-spacing(md);
+    }
+
+    @include on(large) {
+        @include create-block-spacing(lg);
+    }
+
+    @include on(larger) {
+        @include create-block-spacing(xl);
+    }
+
+    @include on(extra-large) {
+        @include create-block-spacing(xxl);
+    }
+}

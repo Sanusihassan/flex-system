@@ -1,0 +1,126 @@
+$breakpoints: (
+    small: 576px,
+    medium: 768px,
+    large: 992px,
+    larger: 1200px,
+    extra-large: 1400px
+);
+
+@mixin on($start: 0, $to: "", $end: 0) {
+    $is-range: $to ==to;
+
+    @if(map-has-key($breakpoints, $start) and not $is-range) {
+        @include min(map-get($breakpoints, $start)) {
+            @content;
+        }
+    }
+
+    @else if($start ==min) {
+        @include min(map-get($breakpoints, $to)) {
+            @content;
+        }
+    }
+
+    @else if($start ==max) {
+        @include max(map-get($breakpoints, $to)) {
+            @content;
+        }
+    }
+
+    @else if($is-range) {
+        @include range($start, $end) {
+            @content;
+        }
+    }
+
+    @else if($start ==medium-to-large) {
+        @include range($sm, $md) {
+            @content;
+        }
+    }
+
+    @else if($start ==large-to-larger) {
+        @include range($lg, $xl) {
+            @content;
+        }
+    }
+
+    @else {
+        @include min($start) {
+            @content;
+        }
+    }
+}
+
+
+@mixin min($breakpoint) {
+    @if(map-has-key($breakpoints, $breakpoint)) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (min-width: $breakpoint) {
+            @content;
+        }
+    }
+
+}
+
+@mixin max($breakpoint) {
+    @if(map-has-key($breakpoints, $breakpoint)) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (max-width: $breakpoint) {
+            @content;
+        }
+    }
+}
+
+@mixin range($start, $end) {
+    @media (min-width: $start) and (max-width: $end) {
+        @content;
+    }
+}
+
+// shortcuts
+@mixin on-extrasmall {
+    @include max(small) {
+        @content;
+    }
+}
+
+@mixin onsmall() {
+    @include on(small) {
+        @content;
+    }
+}
+
+@mixin onmedium() {
+    @include on(medium) {
+        @content;
+    }
+}
+
+@mixin onlarge() {
+    @include on(large) {
+        @content;
+    }
+}
+
+@mixin onlarger() {
+    @include on(larger) {
+        @content;
+    }
+}
+
+@mixin onextralarge() {
+    @include on(larger) {
+        @content;
+    }
+}

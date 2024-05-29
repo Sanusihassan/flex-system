@@ -1,0 +1,32 @@
+//ordering classes
+@mixin create-orders($breakpoint: "") {
+    $suffix: if($breakpoint !="", "#{$breakpoint}-", "");
+
+    @for $order from 1 through 6 {
+        $value: if($order ==6, var(--order), $order);
+
+        %order-#{$suffix}#{$order} {
+            order: $value;
+        }
+    }
+}
+
+@mixin orders() {
+    @include create-orders();
+
+    @include on(medium) {
+        @include create-orders(md);
+    }
+
+    @include on(large) {
+        @include create-orders(lg)
+    }
+
+    @include on(larger) {
+        @include create-orders(xl)
+    }
+
+    @include on(extra-large) {
+        @include create-orders(xxl)
+    }
+}

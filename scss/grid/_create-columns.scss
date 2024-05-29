@@ -1,0 +1,37 @@
+@mixin create-columns($breakpoint: "") {
+    @for $i from 1 through 12 {
+        @if ($breakpoint =="") {
+            %col-#{$i} {
+                --size: var(--col-#{$i});
+                flex: var(--grow-factor) var(--shrink-factor) var(--size);
+            }
+        }
+
+        @else {
+            %col-#{$breakpoint}-#{$i} {
+                --size: var(--col-#{$i});
+                flex: var(--grow-factor) var(--shrink-factor) var(--size);
+            }
+        }
+    }
+}
+
+@mixin grid-system() {
+    @include create-columns();
+
+    @include on(medium) {
+        @include create-columns(md);
+    }
+
+    @include on(large) {
+        @include create-columns(lg);
+    }
+
+    @include on(larger) {
+        @include create-columns(xl);
+    }
+
+    @include on(extra-large) {
+        @include create-columns(xxl);
+    }
+}

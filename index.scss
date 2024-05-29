@@ -1,0 +1,44 @@
+/*!
+*   flex-system.css
+*   (c) 2019 - 2024 by Sanusi Hassan
+*   licance: MIT
+*/
+@import "./scss/global/breakpoint-variables";
+@import "./scss/global/breakpoints";
+@import "./scss/global/root";
+
+@import "./scss/containers/container";
+
+// spacing:
+@import "./scss/spacing/cross-spacing";
+@import "./scss/spacing/main-spacing";
+@import "./scss/spacing/line-spacing";
+@import "./scss/spacing/eliminate-margins";
+
+@import "./scss/containers/row_column_containers";
+
+@import "./scss/utilities/wrap";
+
+@import "./scss/spacing/available";
+
+@import "./scss/grid/create-columns";
+
+@import "./scss/spacing/shorthands";
+
+@import "./scss/spacing/auto-margins";
+
+@import "./scss/utilities/orders";
+
+@import "./scss/utilities/fill-parent";
+
+@import "./scss/utilities/responsive-utils";
+
+@import "./scss/utilities/display/display-toggling";
+
+@import "./scss/utilities/display/display-on";
+
+@import "./scss/utilities/display/display-within";
+
+@import "./scss/grid/grid-layout/grid";
+
+@import "./scss/flex-system";

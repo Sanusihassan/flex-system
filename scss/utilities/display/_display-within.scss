@@ -1,0 +1,132 @@
+// now give me the implementations of the display within breakpoint ranges
+// display on xs only
+
+@include max($sm) {
+    %d-within-xs {
+        display: flex;
+
+        &-inline-flex {
+            display: inline-flex;
+        }
+
+        &-block {
+            display: block;
+        }
+
+        &-inline-block {
+            display: inline-block;
+        }
+
+        &-initial {
+            display: initial;
+        }
+
+        &-grid {
+            display: grid;
+        }
+    }
+}
+
+@include range($sm, $md) {
+    %d-within-md {
+        display: flex;
+
+        &-inline-flex {
+            display: inline-flex;
+        }
+
+        &-block {
+            display: block;
+        }
+
+        &-inline-block {
+            display: inline-block;
+        }
+
+        &-initial {
+            display: initial;
+        }
+
+        &-grid {
+            display: grid;
+        }
+    }
+}
+
+@include range($md, $lg) {
+    %d-within-lg {
+        display: flex;
+
+        &-inline-flex {
+            display: inline-flex;
+        }
+
+        &-block {
+            display: block;
+        }
+
+        &-inline-block {
+            display: inline-block;
+        }
+
+        &-initial {
+            display: initial;
+        }
+
+        &-grid {
+            display: grid;
+        }
+    }
+}
+
+@include range($lg, $xl) {
+    %d-within-xl {
+        display: flex;
+
+        &-inline-flex {
+            display: inline-flex;
+        }
+
+        &-block {
+            display: block;
+        }
+
+        &-inline-block {
+            display: inline-block;
+        }
+
+        &-initial {
+            display: initial;
+        }
+
+        &-grid {
+            display: grid;
+        }
+    }
+}
+
+@include range($xl, $xxl) {
+    %d-within-xxl {
+        display: flex;
+
+        &-inline-flex {
+            display: inline-flex;
+        }
+
+        &-block {
+            display: block;
+        }
+
+        &-inline-block {
+            display: inline-block;
+        }
+
+        &-initial {
+            display: initial;
+        }
+
+        &-grid {
+            display: grid;
+        }
+    }
+}
