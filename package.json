@@ -1,6 +1,6 @@
 {
-  "name": "custom-flex-system",
-  "version": "1.0.0",
+  "name": "flex-system",
+  "version": "2.1.0",
   "description": "",
   "main": "index.scss",
   "scripts": {

@@ -29,9 +29,9 @@
 }
 
 @mixin row-span($span-amount) {
-    grid-row: $span-amount;
+    grid-row: #{$span-amount};
 }
 
 @mixin col-span($span-amount) {
-    grid-column: $span-amount;
+    grid-column: #{$span-amount};
 }

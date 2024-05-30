@@ -2,6 +2,6 @@
 
     %available,
     %available-each>* {
-        flex: var(--portion) 1 0%;
+        flex: var(--grow-factor) 1 0%;
     }
 }
